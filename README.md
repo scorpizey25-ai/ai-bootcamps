@@ -20,9 +20,21 @@
 4. Install **Jupyter Notebook/Lab**  
 5. Install **Git** + buat akun GitHub  
 
-**Setup environment `ai_env`:**
+**Membuat environment `ai_env`:**
 
 ```bash
 conda create -n ai_env python=3.10
 conda activate ai_env
 pip install numpy pandas matplotlib scikit-learn jupyter
+```
+
+---
+
+## 3. Dasar Python untuk Data
+
+**🎯 Tujuan Belajar:**
+- Menguasai dasar Python yang relevan untuk analisis data & AI  
+- Memahami struktur data, kontrol alur, dan OOP sederhana  
+- Siap membuat mini project analisis sederhana  
+
+---
