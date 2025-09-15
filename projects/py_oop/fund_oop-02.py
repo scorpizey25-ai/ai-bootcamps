@@ -1,7 +1,10 @@
 '''
 Materi OOP => Inhiretences
+Penjelasan: Membuat subclass menurunkan properti dan method dari parent class, sehingga kode bisa digunakan ulang.
     - Penggunaan Overiding 
+        Mengganti perilaku method parent di subclass sesuai kebutuhan spesifik.
     - Penggunaan Super()
+        Memanggil method parent dari subclass, berguna untuk menggunakan logika parent tanpa menulis ulang.
 '''
 
 class Kendaraan :
