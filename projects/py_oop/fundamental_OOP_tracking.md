@@ -1,7 +1,9 @@
 # 📘 Ringkasan Materi OOP Python – Checklist Belajar
 
-## ✅ Sudah Dipelajari
+## 🟢 Beginner (Dasar)
+Materi ini cukup untuk memahami OOP **dasar**, membuat class, objek, dan pemanggilan method sederhana.
 
+### ✅ Sudah Dipelajari
 - [x] **Class & Object**  
   - **Penjelasan:** Blueprint untuk membuat objek. Class mendefinisikan atribut dan method, objek adalah instansiasi class.
 
@@ -24,6 +26,12 @@
   - **Public:** `attr` → bebas diakses dari luar.
   - **Getter/Setter:** method untuk membaca atau mengubah atribut private secara aman.
 
+---
+
+## 🟡 Medium (Menengah)
+Materi ini mengkombinasikan beberapa konsep OOP untuk membuat program **lebih fleksibel dan Pythonic**.
+
+### ✅ Sudah Dipelajari
 - [x] **Encapsulation + Overriding + super()**  
   - **Penjelasan:** Gabungan praktik nyata, subclass menggunakan getter parent dan memodifikasi method dengan `super()`.
 
@@ -33,8 +41,12 @@
 - [x] **Duck Typing (Pythonic Polymorphism)**  
   - **Penjelasan:** Python memanggil method yang sama pada objek berbeda tanpa peduli inheritance formal. Filosofi: "If it walks like a duck and it quacks like a duck, it must be a duck".
 
-## ⬜ Belum Dipelajari / Masih Kurang
+---
 
+## 🔴 Advance (Lanjutan / Profesional)
+Materi ini diperlukan untuk **proyek nyata, sistem besar, atau library/framework**.  
+
+### ⬜ Belum Dipelajari / Masih Kurang
 - [ ] **Property & Decorator (`@property`)**  
   - **Penjelasan:** Versi Pythonic dari getter/setter, memungkinkan atribut diakses seperti properti tanpa method eksplisit.
 
@@ -53,8 +65,14 @@
 - [ ] **Polymorphism kompleks / Design Patterns**  
   - **Penjelasan:** Polymorphism yang dipadukan dengan abstract class, interface, atau pattern desain skala besar untuk membuat sistem fleksibel dan terstruktur.
 
-## 💡 Catatan:
+---
 
-- Materi yang sudah dipelajari cukup untuk **OOP dasar sampai menengah**.
-- Materi yang belum dipelajari akan memperkuat **struktur proyek nyata, Pythonic coding, dan design pattern**.
-- Disarankan belajar **Property & Decorator → Class/Static Method → Abstract Class / Interface → Special Methods → Polymorphism kompleks** secara berurutan.
+## 💡 Catatan:
+- Materi **Beginner + Medium** cukup untuk membuat **program OOP dasar sampai menengah**.  
+- Materi **Advance** akan memperkuat **struktur proyek nyata, Pythonic coding, dan design pattern**.  
+- Urutan belajar disarankan:  
+  1. Property & Decorator  
+  2. Class/Static Method  
+  3. Abstract Class / Interface  
+  4. Special Methods / Dunder Methods  
+  5. Polymorphism kompleks / Design Patterns
