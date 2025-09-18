@@ -1,23 +1,26 @@
-# 🐍 Roadmap Pythonic untuk Machine Learning
+<div align="center">
 
-Pythonic style penting banget untuk menulis kode **rapih, ringkas, dan maintainable** di proyek Machine Learning.  
-Berikut roadmap yang disusun dari **Beginner → Medium → Advanced**, langsung dikaitkan dengan use case ML.
+# 🐍✨ Roadmap Pythonic untuk Machine Learning
+
+📘 *Belajar menulis kode Python yang **rapih, ringkas, dan maintainable** untuk ML Workflow.*  
+
+</div>
 
 ---
 
-## 🔹 1. Beginner (Dasar)
-> Fokus: syntax Pythonic dasar, sering dipakai di preprocessing & eksplorasi data.
+## 🌱 Beginner (Dasar)
+> 🎯 Fokus: syntax Pythonic dasar, sering dipakai di preprocessing & eksplorasi data.
 
-- Built-in functions: `len`, `sum`, `max`, `min`, `sorted`, `enumerate`, `any`, `all`, `zip`
-- String & list operations: `join`, `split`, `strip`, slicing
-- Tuple unpacking: `(X_train, X_test, y_train, y_test)`
-- List comprehension: filtering, transformasi data
-- Dictionary comprehension sederhana: mapping label → kategori
-- F-strings: logging hasil training & evaluasi
-- Loop Pythonic: `for item in items` ketimbang index manual
-- `with` statement: buka file dataset lebih clean
+✅ **Materi Utama**
+- 🔹 Built-in functions → `len`, `sum`, `max`, `min`, `sorted`, `enumerate`, `any`, `all`, `zip`
+- 🔹 String & list ops → `join`, `split`, `strip`, slicing
+- 🔹 Tuple unpacking → `(X_train, X_test, y_train, y_test)`
+- 🔹 List & dict comprehension sederhana
+- 🔹 F-strings untuk logging hasil training
+- 🔹 Loop Pythonic → `for item in items` ketimbang index manual
+- 🔹 `with` statement untuk file dataset
 
-📌 **Contoh di ML**:
+📌 **Contoh di ML**
 ```python
 # filtering data
 data = [1,2,3,4,5,6,7,8]
@@ -33,21 +36,22 @@ print(dataset)  # [(1,0), (2,1), (3,0)]
 
 ---
 
-## 🔹 2. Medium (Menengah)
-> Fokus: idiom lebih dalam, digunakan saat **pipeline data & model management**.
+## ⚡ Medium (Menengah)
+> 🎯 Fokus: idiom lebih dalam, sering dipakai saat **pipeline data & model management**.
 
-- Nested & conditional comprehensions (list/dict/set)
-- Set comprehension `{x for x in data}`
-- `enumerate` & `zip` untuk looping dataset
-- Dictionary tricks: `.get()`, `.setdefault()`, `collections.defaultdict`
-- Packing & unpacking: `*args`, `**kwargs`
-- Sorting dengan `key` + lambda: pilih model terbaik berdasarkan skor
-- Ternary expression untuk evaluasi cepat
-- Comprehension untuk flattening data matrix
-- `pathlib` untuk file handling dataset
-- `with` statement untuk file, DB, checkpoint
+✅ **Materi Utama**
+- 🔹 Nested & conditional comprehensions
+- 🔹 Set comprehension `{x for x in data}`
+- 🔹 `enumerate` & `zip` untuk looping dataset
+- 🔹 Dictionary tricks → `.get()`, `.setdefault()`, `defaultdict`
+- 🔹 Packing & unpacking → `*args`, `**kwargs`
+- 🔹 Sorting dengan `key` + lambda
+- 🔹 Ternary expression → `status = "OK" if score>60 else "Fail"`
+- 🔹 Flattening data dengan comprehension
+- 🔹 Pathlib untuk file dataset
+- 🔹 Context manager `with` untuk checkpoint
 
-📌 **Contoh di ML**:
+📌 **Contoh di ML**
 ```python
 import pathlib
 
@@ -63,22 +67,23 @@ print(mapping)  # {0: 'cat', 1: 'dog', 2: 'cat'}
 
 ---
 
-## 🔹 3. Advanced (Lanjutan)
-> Fokus: optimasi pipeline, resource management, dan clean code di level ML Engineer.
+## 🚀 Advanced (Lanjutan)
+> 🎯 Fokus: optimasi pipeline, resource management, & clean code ala ML Engineer.
 
-- **Generators & yield**: batch data loading (hemat RAM)
-- **Generator expressions**: `(x**2 for x in range(10))`
-- **Itertools & functools**: `chain`, `groupby`, `reduce`, `partial`
-- **Decorators**: logging training, caching hasil komputasi
-- **Context managers custom**: handle GPU, DB, resources
-- **Dataclasses**: definisi config model lebih rapi
-- **Type hints & annotations**: untuk kolaborasi tim ML besar
-- **Dunder methods**: bikin custom Dataset class (`__getitem__`, `__len__`) ala PyTorch
-- **Pattern matching (Python 3.10+)**
-- **Async/await**: paralel data loading, API model
-- **Best practice**: PEP8, clean code, maintainability
+✅ **Materi Utama**
+- 🔹 Generators & `yield` → batch data loading (hemat RAM)
+- 🔹 Generator expressions `(x**2 for x in range(10))`
+- 🔹 Itertools & functools (`chain`, `groupby`, `reduce`, `partial`)
+- 🔹 Decorators → logging training, caching
+- 🔹 Context managers custom (`__enter__`, `__exit__`)
+- 🔹 Dataclasses → definisi config model
+- 🔹 Type hints & annotations → kolaborasi tim
+- 🔹 Dunder methods → bikin custom Dataset class (PyTorch style)
+- 🔹 Pattern matching (Python 3.10+)
+- 🔹 Async/await → paralel data loading / API model
+- 🔹 PEP8 & clean code best practices
 
-📌 **Contoh di ML**:
+📌 **Contoh di ML**
 ```python
 # Generator untuk batch data
 def batch_generator(data, batch_size):
@@ -92,8 +97,10 @@ for batch in batch_generator(data, 10):
 
 ---
 
-## 🚀 Ringkasan
-- **Beginner → Medium**: selalu dipakai di preprocessing, training, evaluasi.  
-- **Advanced**: sangat penting untuk pipeline besar, efisiensi, dan produksi (deploy ML model).
+## 🎓 Ringkasan
+- 🌱 **Beginner → Medium**: selalu dipakai di preprocessing, training, evaluasi.  
+- 🚀 **Advanced**: penting untuk pipeline besar, efisiensi, & production ML deployment.  
 
 ---
+
+✨ Dibuat dengan ❤️ untuk perjalanan Machine Learning mu!  
