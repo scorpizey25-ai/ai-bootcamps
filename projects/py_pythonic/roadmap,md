@@ -1,0 +1,99 @@
+# 🐍 Roadmap Pythonic untuk Machine Learning
+
+Pythonic style penting banget untuk menulis kode **rapih, ringkas, dan maintainable** di proyek Machine Learning.  
+Berikut roadmap yang disusun dari **Beginner → Medium → Advanced**, langsung dikaitkan dengan use case ML.
+
+---
+
+## 🔹 1. Beginner (Dasar)
+> Fokus: syntax Pythonic dasar, sering dipakai di preprocessing & eksplorasi data.
+
+- Built-in functions: `len`, `sum`, `max`, `min`, `sorted`, `enumerate`, `any`, `all`, `zip`
+- String & list operations: `join`, `split`, `strip`, slicing
+- Tuple unpacking: `(X_train, X_test, y_train, y_test)`
+- List comprehension: filtering, transformasi data
+- Dictionary comprehension sederhana: mapping label → kategori
+- F-strings: logging hasil training & evaluasi
+- Loop Pythonic: `for item in items` ketimbang index manual
+- `with` statement: buka file dataset lebih clean
+
+📌 **Contoh di ML**:
+```python
+# filtering data
+data = [1,2,3,4,5,6,7,8]
+filtered = [x for x in data if x % 2 == 0]  
+print(filtered)  # [2,4,6,8]
+
+# zip feature dan label
+features = [1,2,3]
+labels = [0,1,0]
+dataset = list(zip(features, labels))
+print(dataset)  # [(1,0), (2,1), (3,0)]
+```
+
+---
+
+## 🔹 2. Medium (Menengah)
+> Fokus: idiom lebih dalam, digunakan saat **pipeline data & model management**.
+
+- Nested & conditional comprehensions (list/dict/set)
+- Set comprehension `{x for x in data}`
+- `enumerate` & `zip` untuk looping dataset
+- Dictionary tricks: `.get()`, `.setdefault()`, `collections.defaultdict`
+- Packing & unpacking: `*args`, `**kwargs`
+- Sorting dengan `key` + lambda: pilih model terbaik berdasarkan skor
+- Ternary expression untuk evaluasi cepat
+- Comprehension untuk flattening data matrix
+- `pathlib` untuk file handling dataset
+- `with` statement untuk file, DB, checkpoint
+
+📌 **Contoh di ML**:
+```python
+import pathlib
+
+# load semua file gambar dari folder dataset
+data_dir = pathlib.Path("dataset/images")
+files = [f for f in data_dir.glob("*.jpg")]
+
+# dictionary comprehension untuk mapping label
+labels = ["cat", "dog", "cat"]
+mapping = {i: label for i, label in enumerate(labels)}
+print(mapping)  # {0: 'cat', 1: 'dog', 2: 'cat'}
+```
+
+---
+
+## 🔹 3. Advanced (Lanjutan)
+> Fokus: optimasi pipeline, resource management, dan clean code di level ML Engineer.
+
+- **Generators & yield**: batch data loading (hemat RAM)
+- **Generator expressions**: `(x**2 for x in range(10))`
+- **Itertools & functools**: `chain`, `groupby`, `reduce`, `partial`
+- **Decorators**: logging training, caching hasil komputasi
+- **Context managers custom**: handle GPU, DB, resources
+- **Dataclasses**: definisi config model lebih rapi
+- **Type hints & annotations**: untuk kolaborasi tim ML besar
+- **Dunder methods**: bikin custom Dataset class (`__getitem__`, `__len__`) ala PyTorch
+- **Pattern matching (Python 3.10+)**
+- **Async/await**: paralel data loading, API model
+- **Best practice**: PEP8, clean code, maintainability
+
+📌 **Contoh di ML**:
+```python
+# Generator untuk batch data
+def batch_generator(data, batch_size):
+    for i in range(0, len(data), batch_size):
+        yield data[i:i+batch_size]
+
+data = list(range(100))
+for batch in batch_generator(data, 10):
+    print(batch)  # tiap iterasi keluar batch size 10
+```
+
+---
+
+## 🚀 Ringkasan
+- **Beginner → Medium**: selalu dipakai di preprocessing, training, evaluasi.  
+- **Advanced**: sangat penting untuk pipeline besar, efisiensi, dan produksi (deploy ML model).
+
+---
