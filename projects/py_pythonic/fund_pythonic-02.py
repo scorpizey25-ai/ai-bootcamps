@@ -41,4 +41,47 @@ for *_, items_ in orders:
 # jika tanpa itu, maka hanya menampilkan default key
 # key=lambda x:x[1] => mengurutkan element ke-1 yaitu qty
 sold_product_unit = sorted(sold.items(), key=lambda x:x[1], reverse=True);   
-print(f"List Unit Terjual Tertinggi : {sold_product_unit}") 
+# print(f"List Unit Terjual Tertinggi : {sold_product_unit}") 
+
+# ================================= heapq & itemgetter =================================
+# Temukan 3 produk yang menghasilkan revenue terbesar.
+# top3_revenue = sorted(revenue.items(), key=itemgetter(1), reverse=True)[:3] # kalau pake sorted jika data kecil
+
+import heapq
+from operator import itemgetter
+
+sold2 = defaultdict(int)
+
+for _, _, _, items2 in orders :
+    for _, item_produk, item_qty, item_price in items2:
+        sold2[item_produk] += item_qty * item_price
+
+top3_revenue = heapq.nlargest(3, sold2.items(), key=itemgetter(1))   # key=lambda x:x[1] = key=itemgetter(1)
+# print(f"Top 3 revenue {top3_revenue}")
+    
+# top3_revenue = heapq.nlargest(3, sold2.items(), key=itemgetter(1))   # key=lambda x:x[1] = key=itemgetter(1)
+# print(f"Top 3 revenue {top3_revenue}")
+
+# ========================= Hitung total revenue per bulan (format YYYY-MM) =========================
+rev_month_data = defaultdict(int)
+
+for *_, date, items in orders:
+    cals = sum((qty * price) for _, _, qty, price in items)
+    rev_month_data[date[:7]] += cals
+
+rev_month_data = dict(sorted(rev_month_data.items()))
+# print(f"{rev_month_data}")
+from collections import Counter
+
+# ======= Hitung AOV (rata-rata nilai pesanan) dan berapa banyak order tiap customer. =======
+
+# 1. Dapatkan total revenue all produk
+net_revenue = [ sum((qty * price) for *_, qty, price in items) for *_, items in orders]
+avg_revenue = sum(net_revenue) / len(net_revenue)
+print(f"Total Revenue Produk : {avg_revenue}")
+
+# 2. Dapatkan orders per customer
+frekuensi_list = Counter(customers for _, customers, *_ in orders)
+
+jumlah_order = dict(sorted(frekuensi_list.items(), key=itemgetter(1), reverse=True))
+print(f"{jumlah_order}")
