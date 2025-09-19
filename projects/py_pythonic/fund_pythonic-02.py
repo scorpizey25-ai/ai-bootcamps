@@ -73,15 +73,25 @@ rev_month_data = dict(sorted(rev_month_data.items()))
 # print(f"{rev_month_data}")
 from collections import Counter
 
-# ======= Hitung AOV (rata-rata nilai pesanan) dan berapa banyak order tiap customer. =======
+# ======= Hitung AOV (rata-rata nilai pesanan) dan ..... =======
 
 # 1. Dapatkan total revenue all produk
 net_revenue = [ sum((qty * price) for *_, qty, price in items) for *_, items in orders]
 avg_revenue = sum(net_revenue) / len(net_revenue)
 print(f"Total Revenue Produk : {avg_revenue}")
 
-# 2. Dapatkan orders per customer
+# 2. Dapatkan total orders per customer
 frekuensi_list = Counter(customers for _, customers, *_ in orders)
-
 jumlah_order = dict(sorted(frekuensi_list.items(), key=itemgetter(1), reverse=True))
 print(f"{jumlah_order}")
+
+# 3. Dapatkan total orders per product
+product_counter = Counter(
+                    produk_name 
+                    for *_, items in orders 
+                    for _, produk_name, *_ in items
+                    )
+
+# most_common() => Ambil dictionary top produk terurut
+pop_dict = {k: v for k, v in product_counter.most_common()}  # langsung dari Counter
+print(pop_dict)
