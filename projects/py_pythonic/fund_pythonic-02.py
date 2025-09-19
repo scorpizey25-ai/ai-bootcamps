@@ -22,17 +22,23 @@ subtotal_list = [qty * price for *_, items in orders for (_, _, qty, price) in i
 total_revenue = sum(subtotal_list)
 # print(f"Total Revenue : {total_revenue}")
 
-# ================================= Dictionary (Dict) =================================
+# ================================= Dictionary Mapping =================================
 # proses di mana Anda membuat sebuah kamus (dictionary) baru berdasarkan sebuah iterable 
 # (seperti list atau tuple) yang sudah ada.
-# =====================================================================================
+# ======================================================================================
 
 # Total unit terjual per produk, misalkan (pensil) => 10 + 3 + 20 => 33
 from collections import defaultdict
 
 sold = defaultdict(int)
-for *_, items in orders:
-    for _, produk_name, qty, _ in items:
+for *_, items_ in orders:
+    for _, produk_name, qty, _ in items_:
         sold[produk_name] += qty 
 
-print(f"Product Name {sold}") 
+# print(f"Product Name {sold.items()}") 
+
+# gunakan items() untuk menampilkan pasangan key & values
+# jika tanpa itu, maka hanya menampilkan default key
+# key=lambda x:x[1] => mengurutkan element ke-1 yaitu qty
+sold_product_unit = sorted(sold.items(), key=lambda x:x[1], reverse=True);   
+print(f"List Unit Terjual Tertinggi : {sold_product_unit}") 
